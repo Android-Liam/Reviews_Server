@@ -4,10 +4,10 @@ import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
 
 @Controller
-class HelloController {
+class SignUpController {
 
-    @GetMapping("/")
-    fun hello(): String {
-        return "hello"
+    @GetMapping("/signup")
+    fun signup(): String {
+        return "signup"
     }
 }
