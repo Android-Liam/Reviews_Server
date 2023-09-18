@@ -32,6 +32,14 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2") // 코루틴 사용 시 추가
 	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
+
+	implementation("com.h2database:h2") // H2 database (임시 데이터베이스용)
+	implementation("mysql:mysql-connector-java:8.0.33") // MySQL 데이터베이스 드라이버
+	implementation("javax.persistence:javax.persistence-api:2.2") // persistence
+
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+
+
 }
 
 tasks.withType<KotlinCompile> {
