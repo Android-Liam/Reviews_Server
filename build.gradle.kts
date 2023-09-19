@@ -12,47 +12,52 @@ group = "com.example"
 version = "0.0.1-SNAPSHOT"
 
 java {
-	sourceCompatibility = JavaVersion.VERSION_17
+	sourceCompatibility = JavaVersion.VERSION_20
 }
 
 repositories {
 	mavenCentral()
-	// 추가: Spring Boot의 Milestone Repository를 사용
+	// Spring Boot의 Milestone Repository 추가
 	maven { url = uri("https://repo.spring.io/milestone") }
 }
 
 dependencies {
+	// Spring Boot 기본 의존성
+	implementation("org.springframework.boot:spring-boot-starter")
+	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
+
+	// 데이터베이스 관련 의존성
 	implementation("org.hibernate:hibernate-core:5.6.2.Final")
 	implementation("jakarta.persistence:jakarta.persistence-api:2.2.3")
+	implementation("com.h2database:h2")
 
-	// 수정: spring-boot-starter-graphql의 버전을 명시
-	implementation("org.springframework.boot:spring-boot-starter-graphql:2.5.5")
+	// Kotlin 및 코루틴 관련 의존성
+	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
 
-	implementation("org.springframework.boot:spring-boot-starter-web")
+	// JSON 직렬화 관련 의존성
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-	implementation("org.jetbrains.kotlin:kotlin-reflect")
+
+	// Spring Boot GraphQL 관련 의존성
+	// implementation("org.springframework.boot:spring-boot-starter-graphql")
+
+	// 테스트 의존성
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework:spring-webflux")
 	testImplementation("org.springframework.graphql:spring-graphql-test")
-
-	implementation("org.springframework.boot:spring-boot-starter")
-	implementation("org.springframework.boot:spring-boot-starter-web")
-	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
-	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
-
-	implementation("com.h2database:h2")
-	implementation("mysql:mysql-connector-java:8.0.33")
 }
 
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
 		freeCompilerArgs = listOf("-Xjsr305=strict")
-		jvmTarget = "17"
+		jvmTarget = "1.8"
 	}
 }
 
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+
