@@ -27,6 +27,7 @@ class UserController {
 
     @PostMapping("/")
     fun createUser(@RequestBody user: UserEntity): UserEntity {
+        println("UserController > createUser!")
         return userService.createUser(user)
     }
 

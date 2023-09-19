@@ -1,7 +1,5 @@
 package com.example.server
 
-import jakarta.persistence.Entity
-import jakarta.persistence.Id
 import javax.persistence.*
 
 /*
@@ -14,7 +12,7 @@ UserEntity.kt: "user_info" 테이블과 매핑되는 엔티티 클래스
 data class UserEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var userIndex: Long?,
+    var userIndex: Long? = null,
 
     @Column(name = "name", length = 15)
     val name: String? = null,
@@ -33,7 +31,8 @@ data class UserEntity(
 
     @Column(name = "taste_sensitivity")
     val tasteSensitivity: Int? = null
-) {
+)
+{
+    // 기본 생성자 추가
     constructor() : this(null, null, null, null, null, null, null)
 }
-

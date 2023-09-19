@@ -10,5 +10,6 @@ UserRepository.kt: 엔티티에 대한 데이터베이스 조작을 위한 리�
 
 
 interface UserRepository : JpaRepository<UserEntity, Long> {
+
     // 추가적인 쿼리 메서드를 여기에 정의할 수 있음
 }

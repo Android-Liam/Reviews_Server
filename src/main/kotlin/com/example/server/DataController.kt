@@ -26,8 +26,8 @@ class DataController {
         println("Received data from Android app:")
         println("Nickname: ${data.name}\nID: ${data.id}\nPassword: ${data.password}\nPassword: ${data.passwordCheck} ")
 
+        // 새로운 사용자 엔티티 생성
         val newUser = UserEntity(
-            userIndex = 1,
             name = data.name,
             id = data.id,
             pwd = data.password,
@@ -37,7 +37,7 @@ class DataController {
         )
 
         // UserService를 사용하여 사용자를 생성
-        val createdUser = userService.createUser(newUser)
+        userService.createUser(newUser)
 
         // 데이터 처리 및 응답 생성
         val response = ResponseClass("Data received successfully", true)

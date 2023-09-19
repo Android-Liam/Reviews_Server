@@ -2,6 +2,7 @@ package com.example.server
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 
 /*
 MySQL과 연결하기 위한 코드
@@ -22,7 +23,10 @@ class UserService {
         return userRepository.findById(userIndex).orElse(null)
     }
 
+    @Transactional
     fun createUser(user: UserEntity): UserEntity {
+        println("UserService > createUser!")
+        println("user : $user")
         return userRepository.save(user)
     }
 
