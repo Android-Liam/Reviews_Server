@@ -14,9 +14,11 @@ class DataController {
 
     @PostMapping("/data")
     fun receiveData(@RequestBody data: ReceiveRegisterDataClass): ResponseEntity<ResponseClass> {
-        // 데이터 로깅
+        // Data Logging
         println("Received data from Android app:")
         println("Nickname: ${data.name}\nID: ${data.id}\nPassword: ${data.password}\nPassword: ${data.passwordCheck} ")
+
+
 
         // 데이터 처리 및 응답 생성
         val response = ResponseClass("Data received successfully", true)
